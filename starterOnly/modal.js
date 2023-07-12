@@ -10,7 +10,7 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const modalBtnClose = document.querySelector('.close');
+const modalBtnClose = document.querySelector('.close');  // on récupère le bouton close de la modal
 const formData = document.querySelectorAll(".formData");
 
 // launch modal event
@@ -26,7 +26,7 @@ function closeModal() {
       modalbg.style.display = 'none';
 }
 
-// Close modal function
+// Close modal function: ajout d'une fonction et du listener puis un display none gérer pas le css
 modalBtnClose.addEventListener('click', function () {
       modalbg.style.display = 'none';
       console.log("fermeture du modal")
