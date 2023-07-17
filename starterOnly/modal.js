@@ -83,7 +83,7 @@ modalBtnClose.addEventListener('click', function () {
  */
 
 function validateFirstName() {
-      const regexFirstName = /^[a-zA-z/-ê/ë/é]{2,30}$/; /*min 2 caractères*/
+      const regexFirstName = /^[a-zA-z -ê/ë/é]{2,30}$/; /*min 2 caractères*/
       const parent = document.getElementById('first').parentNode;
       console.log(parent,'parent-PRENOM');
       if (firstName.value == '' || !regexFirstName.test(firstName.value)) {
@@ -102,7 +102,7 @@ function validateFirstName() {
 //fonction validation du nom et message erreur si KO!!!
 function validateLastName() {
       // a vérifier
-      const regexLastName = /^[a-zA-z/-ê/ë/é]{2,30}$/; /*min 2 caracteres*/
+      const regexLastName = /^[a-zA-z -ê/ë/é]{2,30}$/; /*min 2 caracteres*/
       const parent = document.getElementById('last').parentNode;
       console.log(parent, 'parent-NOM');
       if (lastName.value == '' || !regexLastName.test(lastName.value)) {
