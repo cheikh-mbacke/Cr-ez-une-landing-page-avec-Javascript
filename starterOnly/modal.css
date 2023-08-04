@@ -528,3 +528,16 @@ footer {
   }
 }
 
+/* =================== Ajout de classe pour la fonction overlay ======================= */
+.aria-hidden {
+  display: none;
+}
+.aria-succes {
+  display: flex;
+  height: 700px;
+  padding: 0 40px;
+  text-align: justify;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+}

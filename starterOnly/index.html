@@ -18,19 +18,16 @@
     </div>
     <!-- Navbar -->
     <nav class="main-navbar">
-
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
-      <!-- A vérifier -->
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
     </nav>
   </div>
-  <!-- </div>??? -->
   <main>
     <!-- Hero section -->
     <div class="hero-section">
@@ -110,7 +107,6 @@
                 <span class="checkbox-icon"></span>
                 Portland</label>
             </div>
-
             <div class="formData">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked>
               <!-- suppression de required -->
@@ -126,16 +122,18 @@
               </label>
               <br>
             </div>
-            <!-- suppression 2eme class et ajout id -->
+            <!-- suppression 2eme class et ajout d'un id -->
             <input id="btnSubmit" class="btn-submit button" type="submit" value="C'est parti">
           </form>
-          <!-- Validation du formulaire: ajout d'une div-->
-          <!-- <div class="bground">
-            <p id="validMessage"></p>
-            <input id="btnValid" class="button btn-submit" type="button" value="Fermer" />
-          </div> -->
+          <!-- Validation du formulaire: ajout d'une div et une class hidden. 
+               On ajoute une fonction overlay pour remplacer le texte en cas de succès-->
+          <div class="confirm aria-hidden" id="validateMessage">
+            <p>Merci pour votre inscription.</p>
+            <button class="btn-submit" type="button" onclick="overlay()">Fermer</button>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   </main>
   <footer>
