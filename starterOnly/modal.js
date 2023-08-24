@@ -13,7 +13,7 @@ const modalBtn = document.querySelectorAll('.modal-btn');
 const modalBtnClose = document.querySelector('.close'); // ISSUE#1: on récupère le bouton close de la modal
 const formData = document.querySelectorAll('.formData');
 const modalBody = document.querySelector('.modal-body'); // on récupère le modal-body
-
+const modalbgThanks = document.querySelector('.confirmation');
 // Formulaire
 const form = document.getElementById('reserve');
 const validateForm = document.querySelector('validateForm');
@@ -33,6 +33,7 @@ const btnValid = document.getElementById('btnValid');
 // launch modal form
 function launchModal() {
       modalbg.style.display = 'block';
+      
 }
 
 // launch modal event
@@ -41,13 +42,21 @@ modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
 // Close modal form
 function closeModal() {
       modalbg.style.display = 'none';
-}
+};
+
+// On ferme la modal de confirmation
+function closeModalConfirmation() {
+      console.log('je ferme la modal et reset');
+      modalbgThanks.style.display = 'none';
+      modalbg.style.display = 'none';
+      window.location.reload();
+      form.reset();
+      // modalBody.style.display = 'none';
+};
 
 // Listener sur les champs
 firstName.addEventListener('change', function () {
       validateFirstName(this);
-    
-      
       // console.log(firstName.value, 'firstname');
 });
 
@@ -71,12 +80,28 @@ quantity.addEventListener('change', function () {
       // console.log(quantity.value, 'quantity')
 });
 
+// On vérifie si tous les champs sont valide sinon on affiche un message d'erreur.
+function verifChamps() {
+      validateFirstName()
+      validateLastName()
+      validateEmail()
+      validateQuantity()
+      validateBirthdate()
+      validateCity()
+      validateCgu()
+}
+
+// Si tous les champs sont valide on envoie la validation
+function envoieValider(){
+      modalbg.style.display = "none";
+//      modalbgThanks.style.display = "flex";
+}
 
 // Validation du formulaire au submit
 /* fonction validation du formulaire */
 function validate() {
-
       if (
+            
             validateFirstName() && 
             validateLastName() &&
             validateEmail() &&
@@ -87,15 +112,25 @@ function validate() {
             // prochain event !!!
             
             ) {
-            
+            // envoieValider();
             console.log('envoi du formulaire');
             console.log('je rentre dans le thanks')
             openModalThanking();
       } else {
-            return false;
+            verifChamps();
       }
       return true; //A remettre sur true
 }
+
+// Envoyer la demande
+form.addEventListener('submit', function (event) {
+      event.preventDefault();
+    validate()
+    
+    
+    });
+// form.addEventListener('submit', e => validate(e));
+// form.reset();
 
 // Close modal function: ajout d'une fonction et du listener puis un display none
 // au click pour fermer la modal, gérer par le css.
@@ -201,7 +236,6 @@ function validateCity() {
                   'data-error',
                   'Veuillez sélectionner une ville !'
             );
-            // console.log(document.querySelector('input[name="location"]'),'ELEMENT');
             document.querySelector('input[name="location"]').parentElement.setAttribute('data-error-visible', 'true');
             return false;
       }
@@ -209,32 +243,66 @@ function validateCity() {
       return true;
 }
   
-// TEST CGU==================
+// ================= VALIDATION CGU==================
 function validateCgu() {
-      const parent = document.getElementById('checkbox1').parentNode;
-            if (!cgu.checked) {
-                  cgu.focus();
-                  parent.setAttribute(
-                        'data-error',
-                        'Veuillez accepter les conditions générales d\'utilisation !'
-                  );
-                  parent.setAttribute('data-error-visible', 'true');
-                  return false;
-            }
-            parent.setAttribute('data-error-visible', 'false');
-            return true;
+
+      if (document.querySelector('input[name="cgu"]:checked') == null) {
+            document.querySelector('input[name="cgu"]').parentElement.setAttribute(
+                  'data-error',
+                  'Veuillez accepter les conditions générales d\'utilisation !'
+            );
+            document.querySelector('input[name="cgu"]').parentElement.setAttribute('data-error-visible', 'true');
+            return false;
+
+            
+      }
+      document.querySelector('input[name="cgu"]').parentElement.setAttribute('data-error-visible', 'false');
+      return true;
+
+// ==========================
+      // if 
+      // (!cgu.checked)
+      // // (document.querySelector('input[name="cgu"]:checked') == null) 
+      // {
+      //       document.querySelector('label[for=checkbox1]').parentElement.setAttribute(
+      //             'data-error',
+      //             'Veuillez accepter les conditions générales d\'utilisation !'
+      //       );
+      //       document.querySelector('label[for=checkbox1]').parentElement.setAttribute('data-error-visible', 'true');
+      //       return false;
+
+      // }
+      // document.querySelector('label[for=checkbox1]').parentElement.setAttribute('data-error-visible', 'false');
+      // return true;
+
+// ==============================
+      // const parent = document.getElementById('checkbox1').parentNode;
+      // console.log(parent.childNodes[7],'CHILDNODE')
+      //       if (!cgu.checked) {
+      //             cgu.focus();
+      //             parent.childNodes[7].setAttribute(
+      //                   'data-error',
+      //                   'Veuillez accepter les conditions générales d\'utilisation !'
+      //             );
+      //             parent.childNodes[7].setAttribute('data-error-visible', 'true');
+      //             return false;
+      //       }
+      //       parent.childNodes[7].setAttribute('data-error-visible', 'false');
+      //       return true;
 }
 
-function openModalThanking(e) {
-      document.forms["reserve"].classList.add('aria-hidden');
-      document.querySelector(".confirm").classList.remove("aria-hidden");
-      document.querySelector(".confirm").classList.add("aria-succes");
-
+function openModalThanking() {
+      console.log('je rentre dans le modalthanks');
+      form.style.display = 'none'
+      document.querySelector(".confirmation").classList.remove("aria-hidden");
+      document.querySelector(".confirmation").classList.add("aria-succes");
+      
 }
 
 // BTN SUBMIT======
 // btnValid.addEventListener('click', function() {
 //       window.location.reload();
+//       form.reset();
 // });
 
 // TEST=======
