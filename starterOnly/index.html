@@ -5,42 +5,32 @@
   <meta charset="utf-8">
   <title>Reservation</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="modal.css">
+  <!-- modal.css => style.css -->
+  <link rel="stylesheet" href="./css/style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icon_gameon.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
 </head>
 
 <body>
-
-  <!-- On remplace la div par header à tester mais décale tout l'ensemble-->
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img alt="logo GameOn" src="Logo.png"> <!-- attributs supprimés et ajout nom du logo-->
+      <img alt="logo GameOn" src="./assets/Logo.png"> <!-- attributs supprimés et ajout nom du logo-->
     </div>
     <!-- Navbar -->
     <nav class="main-navbar ">
       <!-- <a href="#" class="active"><span>Accueil</span></a> -->
+      <!-- Toggle navbar -->
       <ul class="nav__list">
         <li class="nav__item"><a href="#" class="nav__link"><span>Détails de l'évènement</span></a></li>
         <li class="nav__item"><a href="#" class="nav__link"><span>À propos</span></a></li>
         <li class="nav__item"><a href="#" class="nav__link"><span>Contact</span></a></li>
         <li class="nav__item"><a href="#" class="nav__link"><span>Évènements passés</span></a></li>
         <li class="nav__item"><a href="javascript:void(0);" class="icon" onclick="editNav()">
-          <i class="fa fa-bars"></i>
-        </a></li>
+            <i class="fa fa-bars"></i>
+          </a></li>
       </ul>
-      <!-- <a href="#" class="active"><span>Détails de l'évènement</span></a> -->
-      <!-- <a href="#"><span>À propos</span></a> -->
-      <!-- <a href="#"><span>Contact</span></a> -->
-      <!-- <a href="#"><span>Évènements passés</span></a> -->
-      <!-- <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
-      </a> -->
-      <!-- <button type="button" aria-label="toggle" class="nav-toggler">
-        <a href="javascript:void(0);" class="icon" onclick="editNav()">
-          <i class="fa fa-bars"></i>
-        </a>
-      </button> -->
     </nav>
   </div>
   <main>
@@ -60,7 +50,7 @@
         </button>
       </div>
       <div class="hero-img">
-        <img src="./bg_img.jpg" alt="img">
+        <img src="./assets/bg_img.jpg" alt="img">
       </div>
       <button class="btn-signup modal-btn">
         je m'inscris
@@ -132,9 +122,8 @@
               </label>
               <br>
             </div>
-            <!-- Séparation input -->
+            <!-- Séparation input pour afficher le message d'erreur sous la première checkbox -->
             <div class="formData">
-
               <input class="checkbox-input" type="checkbox" id="checkbox2">
               <label class="checkbox2-label" for="checkbox2">
                 <span class="checkbox-icon"></span>
@@ -148,7 +137,7 @@
           <!-- Validation du formulaire: ajout d'une div et une class hidden.-->
           <div class="confirmation aria-hidden" id="validateMessage">
             <div>
-              <p>Merci pour <br/> votre inscription.</p>
+              <p>Merci pour <br /> votre inscription.</p>
             </div>
             <button class="btnValid" type="button" onclick="closeModalConfirmation()">Fermer</button>
           </div>
@@ -162,7 +151,7 @@
       Copyright 2014 - 2022, GameOn Inc.
     </p>
   </footer>
-  <script src="modal.js"></script>
+  <script src="./js/modal.js"></script>
 </body>
 
 </html>

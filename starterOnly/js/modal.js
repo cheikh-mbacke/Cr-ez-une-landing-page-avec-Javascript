@@ -5,7 +5,7 @@ function editNav() {
       } else {
             x.className = 'topnav';
       }
-}
+};
 
 // DOM Elements
 const modalbg = document.querySelector('.bground');
@@ -33,8 +33,7 @@ const btnValid = document.getElementById('btnValid');
 // launch modal form
 function launchModal() {
       modalbg.style.display = 'block';
-      
-}
+};
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener('click', launchModal));
@@ -46,38 +45,31 @@ function closeModal() {
 
 // On ferme la modal de confirmation
 function closeModalConfirmation() {
-      console.log('je ferme la modal et reset');
       modalbgThanks.style.display = 'none';
       modalbg.style.display = 'none';
       window.location.reload();
       form.reset();
-      // modalBody.style.display = 'none';
 };
 
 // Listener sur les champs
 firstName.addEventListener('change', function () {
       validateFirstName(this);
-      // console.log(firstName.value, 'firstname');
 });
 
 lastName.addEventListener('change', function () {
       validateLastName(this);
-      // console.log(lastName.value, 'lastname');
 });
 
 email.addEventListener('change', function () {
       validateEmail(this);
-      // console.log(email.value, 'email');
 });
 
 birthdate.addEventListener('change', function () {
       validateBirthdate(this);
-      // console.log(birthdate.value, 'birthdate')
 });
 
 quantity.addEventListener('change', function () {
       validateQuantity(this);
-      // console.log(quantity.value, 'quantity')
 });
 
 // On vérifie si tous les champs sont valide sinon on affiche un message d'erreur.
@@ -89,19 +81,17 @@ function verifChamps() {
       validateBirthdate()
       validateCity()
       validateCgu()
-}
+};
 
 // Si tous les champs sont valide on envoie la validation
 function envoieValider(){
       modalbg.style.display = "none";
-//      modalbgThanks.style.display = "flex";
-}
+};
 
 // Validation du formulaire au submit
 /* fonction validation du formulaire */
 function validate() {
       if (
-            
             validateFirstName() && 
             validateLastName() &&
             validateEmail() &&
@@ -109,28 +99,19 @@ function validate() {
             validateQuantity() &&
             validateCity() &&
             validateCgu()
-            // prochain event !!!
-            
             ) {
-            // envoieValider();
-            console.log('envoi du formulaire');
-            console.log('je rentre dans le thanks')
             openModalThanking();
       } else {
             verifChamps();
       }
-      return true; //A remettre sur true
-}
+      return true; 
+};
 
 // Envoyer la demande
 form.addEventListener('submit', function (event) {
       event.preventDefault();
-    validate()
-    
-    
-    });
-// form.addEventListener('submit', e => validate(e));
-// form.reset();
+      validate()
+});
 
 // Close modal function: ajout d'une fonction et du listener puis un display none
 // au click pour fermer la modal, gérer par le css.
@@ -146,9 +127,8 @@ modalBtnClose.addEventListener('click', function () {
  */
 
 function validateFirstName() {
-      // A vérifier pour empecher la saisie de chiffre
-      const regexFirstName = /^([A-Za-z|\s]{2,15})?([-]{0,1})?([A-Za-z|\s]{2,15})$/  /*min 2 caractères,pas de chiffres*/
-      // /^[a-zA-z -ê/ë/é]{2,30}$/;
+      // Minimum 2 caractères, maximum 20, chiffres interdit
+      const regexFirstName = /^([A-Za-z|\s]{2,20})?([-]{0,1})?([A-Za-z|\s]{2,20})$/;  
       
       const parent = document.getElementById('first').parentNode;
             if (firstName.value.trim() == '' || !regexFirstName.test(firstName.value)) {
@@ -166,9 +146,8 @@ function validateFirstName() {
 
 //fonction validation du nom et message erreur si KO!!!
 function validateLastName() {
-      // a vérifier
-      const regexLastName = /^([A-Za-z|\s]{2,15})?([-]{0,1})?([A-Za-z|\s]{2,15})$/       /*min 2 caracteres*/
-      // /^[a-zA-z -ê/ë/é]{2,30}$/; 
+      // Minimum 2 caractères, maximum 20, chiffres interdit
+      const regexLastName = /^([A-Za-z|\s]{2,15})?([-]{0,1})?([A-Za-z|\s]{2,15})$/;
 
       const parent = document.getElementById('last').parentNode;
             if (lastName.value.trim() == '' || !regexLastName.test(lastName.value)) {
@@ -203,28 +182,7 @@ function validateEmail() {
 
 // fonction validation date de naissance et message erreur si KO!!!
 function validateBirthdate() {
-      // const birthdate = new Date();
-      // let majority = Date.now() - birthdate.getTime();
-      // majority = new Date(majority);
-      // const userAge = majority.getFullYear() - 1970;
 
-      // const currentYear = new Date().getFullYear();
-      // const birthYear = birthdate.getFullYear();
-
-      //       const parent = document.getElementById('birthdate').parentNode;
-      //       if (birthYear < currentYear - 100 || birthYear.toString().length !== 4 || userAge < 18) {
-      //             birthdate.focus();
-      //             parent.setAttribute(
-      //                   'data-error',
-      //                   'Vous devez avoir 18 ans pour participer !'
-      //             );
-      //             parent.setAttribute('data-error-visible', 'true');
-      //             return false;
-      //       }
-      //       parent.setAttribute('data-error-visible', 'false');
-      //       return true;
-
-      // ===================================================
       const parent = document.getElementById('birthdate').parentNode;
             if (!birthdate.value) {
                   birthdate.focus();
@@ -239,8 +197,9 @@ function validateBirthdate() {
             return true;
 }
 
-// ========== NOMBRE DE PARTIE ============
+// NOMBRE DE PARTIE
 function validateQuantity() {
+      // Nombre compris entre 0 et 99
       const regexQuantity = /^([0-9]{1,2})$/;
       const parent = document.getElementById('quantity').parentNode;
       if (quantity.value === '' || !regexQuantity.test(quantity.value)) {
@@ -256,7 +215,7 @@ function validateQuantity() {
       return true;
 }
 
-// ================ CHOIX DE VILLE ==================
+// CHOIX DE VILLE
 function validateCity() {
       if (document.querySelector('input[name="location"]:checked') == null) {
             document.querySelector('input[name="location"]').parentElement.setAttribute(
@@ -270,9 +229,8 @@ function validateCity() {
       return true;
 }
   
-// ================= VALIDATION CGU==================
+// VALIDATION CGU
 function validateCgu() {
-
       if (document.querySelector('input[name="cgu"]:checked') == null) {
             document.querySelector('input[name="cgu"]').parentElement.setAttribute(
                   'data-error',
@@ -280,86 +238,27 @@ function validateCgu() {
             );
             document.querySelector('input[name="cgu"]').parentElement.setAttribute('data-error-visible', 'true');
             return false;
-
-            
       }
       document.querySelector('input[name="cgu"]').parentElement.setAttribute('data-error-visible', 'false');
       return true;
-
-// ==========================
-      // if 
-      // (!cgu.checked)
-      // // (document.querySelector('input[name="cgu"]:checked') == null) 
-      // {
-      //       document.querySelector('label[for=checkbox1]').parentElement.setAttribute(
-      //             'data-error',
-      //             'Veuillez accepter les conditions générales d\'utilisation !'
-      //       );
-      //       document.querySelector('label[for=checkbox1]').parentElement.setAttribute('data-error-visible', 'true');
-      //       return false;
-
-      // }
-      // document.querySelector('label[for=checkbox1]').parentElement.setAttribute('data-error-visible', 'false');
-      // return true;
-
-// ==============================
-      // const parent = document.getElementById('checkbox1').parentNode;
-      // console.log(parent.childNodes[7],'CHILDNODE')
-      //       if (!cgu.checked) {
-      //             cgu.focus();
-      //             parent.childNodes[7].setAttribute(
-      //                   'data-error',
-      //                   'Veuillez accepter les conditions générales d\'utilisation !'
-      //             );
-      //             parent.childNodes[7].setAttribute('data-error-visible', 'true');
-      //             return false;
-      //       }
-      //       parent.childNodes[7].setAttribute('data-error-visible', 'false');
-      //       return true;
 }
 
+// Modal de remerciement
 function openModalThanking() {
-      console.log('je rentre dans le modalthanks');
       form.style.display = 'none'
       document.querySelector(".confirmation").classList.remove("aria-hidden");
       document.querySelector(".confirmation").classList.add("aria-succes");
       
 }
 
-// ACTIVE LINKS
+// ACTIVE LINKS, TOGGLE NAVBAR
 const activeLinks = document.querySelectorAll('.nav__link');
 activeLinks.forEach(activeLink => {
       activeLink.addEventListener('click', () => {
             document.querySelector('.active')?.classList.remove('active');
             activeLink.classList.add('active');
-      })
-})
+      });
+});
 
-
-// MENU TOGGLE
-// const menuToggle = document.querySelector(".icon");
-// const navLinks = document.querySelector(".main-navbar");
-// menuToggle.addEventListener('click', () => {
-//       navLinks.classList.toggle('icon')
-// })
-
-// const btnIcon = document.querySelector('nav-toggler');
-// const navigation = document.querySelector('nav')
-// btnIcon.addEventListener('click', toggleNav)
-// function toggleNav() {
-//       btnIcon.classList.toggle('active')
-//       navigation.classList.toggle('active')
-//       console.log("BTN ACTIVE")
-// }
-
-
-// BTN SUBMIT======
-// btnValid.addEventListener('click', function() {
-//       window.location.reload();
-//       form.reset();
-// });
-
-// TEST=======
-console.log(document.forms["reserve"]);
 
 

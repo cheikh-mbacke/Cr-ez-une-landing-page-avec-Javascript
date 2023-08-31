@@ -199,9 +199,7 @@ input {
   margin-bottom: 7px;
   text-align: left;
   line-height: 1.1;
-  /*test*/
   font-size: clamp(0.6rem, 1vw, 1rem);
-  /* test*/
   opacity: 0;
   transition: 0.3s;
   font-family: "Roboto", sans-serif;
@@ -453,18 +451,15 @@ input[data-error]::after {
 .hero-headline {
   font-size: 6rem;
   font-size: clamp(4.5rem, 5vw, 6rem);
-  /* test */
   font-weight: normal;
   white-space: nowrap;
 }
 
 .hero-text {
-  /* width: 100%; */
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
   font-size: 22px;
-  /* font-size: clamp(1.4rem, 1.5vw, 2rem); */
 }
 
 .btn-signup {
@@ -486,8 +481,8 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
-  position: relative;
   /* Pour avoir tout l'image*/
+  position: relative;
 }
 
 .copyrights {
@@ -520,11 +515,12 @@ footer {
   }
 }
 
-/* =================== Ajout de la classe hidden pour la modal de confirmation ======================= */
+/*  Ajout de la classe hidden pour la modal de confirmation */
 .aria-hidden {
   display: none;
 }
 
+/* ajout d'une classe succes pour afficher la modal de confirmation */
 .aria-succes {
   display: flex;
   height: 650px;
@@ -534,7 +530,6 @@ footer {
   justify-content: space-evenly;
   align-items: flex-end;
   font-weight: 400;
-  /* font: "DM Sans", Arial, Helvetica, sans-serif; */
 }
 
 .confirmation div>p {
@@ -662,9 +657,7 @@ footer {
     right: 0;
     top: 0;
     padding: 0;
-    background-color: transparent
-      /* test*/
-    ;
+    background-color: transparent;
   }
 
   .topnav.responsive a {
@@ -673,31 +666,6 @@ footer {
     text-align: left;
   }
 }
-
-/* @media screen and (min-width: 769px) and (max-width: 900px) {
-  .topnav.responsive {
-    position: relative;
-    padding: 5px;
-  }
-
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0;
-    font-size: 25px;
-    background-color: transparent
-      
-    ;
-  }
-
-  .main-navbar {
-    float: right;
-    padding: 0;
-    z-index: 10;
-    margin-bottom: 25px;
-  }
-} */
 
 @media screen and (max-width: 800px) {
   /* Modification du CSS */
@@ -708,9 +676,7 @@ footer {
     top: 0;
     padding: 0;
     font-size: 25px;
-    background-color: transparent
-      /* test*/
-    ;
+    background-color: transparent;
   }
 
   .topnav.responsive a {
@@ -738,7 +704,6 @@ footer {
     position: relative;
     background-color: white;
     margin: 5.5%;
-    /* padding: 2%; */
   }
 
   .header-logo img {
@@ -752,28 +717,12 @@ footer {
     padding: 0;
     z-index: 10;
     margin-bottom: 25px;
-    /* test */
   }
-
-  /* test */
-  /* .nav-toggler {
-    border: none;
-    background-color: white;
-  } */
-
-  /* .main-navbar  {
-    display: flex;
-    gap: 10px;
-    text-align: center;
-    font-family: "DMSans-Medium", sans-serif;
-    list-style: none;
-  } */
 
   .fa {
     color: #FF001B;
   }
 
-  /* ---------------------------------- */
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -794,7 +743,6 @@ footer {
   }
 
   .hero-headline {
-    /* font-size: 4.5rem; */
     font-size: clamp(3.5rem, 8.5vw, 12.1rem);
     margin-top: 20px;
     font-weight: 900;
@@ -830,15 +778,10 @@ footer {
 
   .main-navbar>ul {
     display: flex;
-    /* list-style: none; */
   }
 
   body>footer {
-    /* padding-left: 2vw; */
     margin-left: unset;
     padding-left: unset;
-    /* padding-right: 2vw; */
-    /* margin: 0 20px; */
   }
-
 }
