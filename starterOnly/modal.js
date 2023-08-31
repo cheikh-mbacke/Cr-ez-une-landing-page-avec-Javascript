@@ -147,13 +147,15 @@ modalBtnClose.addEventListener('click', function () {
 
 function validateFirstName() {
       // A vérifier pour empecher la saisie de chiffre
-      const regexFirstName = /^[a-zA-z -ê/ë/é]{2,30}$/; /*min 2 caractères*/
+      const regexFirstName = /^([A-Za-z|\s]{2,15})?([-]{0,1})?([A-Za-z|\s]{2,15})$/  /*min 2 caractères,pas de chiffres*/
+      // /^[a-zA-z -ê/ë/é]{2,30}$/;
+      
       const parent = document.getElementById('first').parentNode;
             if (firstName.value.trim() == '' || !regexFirstName.test(firstName.value)) {
                   firstName.focus();
                   parent.setAttribute(
                         'data-error',
-                        'Veuillez entrer un prénom valide !'
+                        'Minimum 2 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés" !'
                   );
                   parent.setAttribute('data-error-visible', 'true');
                   return false;
@@ -165,13 +167,15 @@ function validateFirstName() {
 //fonction validation du nom et message erreur si KO!!!
 function validateLastName() {
       // a vérifier
-      const regexLastName = /^[a-zA-z -ê/ë/é]{2,30}$/; /*min 2 caracteres*/
+      const regexLastName = /^([A-Za-z|\s]{2,15})?([-]{0,1})?([A-Za-z|\s]{2,15})$/       /*min 2 caracteres*/
+      // /^[a-zA-z -ê/ë/é]{2,30}$/; 
+
       const parent = document.getElementById('last').parentNode;
             if (lastName.value.trim() == '' || !regexLastName.test(lastName.value)) {
                   lastName.focus();
                   parent.setAttribute(
                         'data-error',
-                        'Veuillez entrer un nom valide !'
+                        'Minimum 2 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés !'
                   );
                   parent.setAttribute('data-error-visible', 'true');
                   return false;
@@ -199,6 +203,28 @@ function validateEmail() {
 
 // fonction validation date de naissance et message erreur si KO!!!
 function validateBirthdate() {
+      // const birthdate = new Date();
+      // let majority = Date.now() - birthdate.getTime();
+      // majority = new Date(majority);
+      // const userAge = majority.getFullYear() - 1970;
+
+      // const currentYear = new Date().getFullYear();
+      // const birthYear = birthdate.getFullYear();
+
+      //       const parent = document.getElementById('birthdate').parentNode;
+      //       if (birthYear < currentYear - 100 || birthYear.toString().length !== 4 || userAge < 18) {
+      //             birthdate.focus();
+      //             parent.setAttribute(
+      //                   'data-error',
+      //                   'Vous devez avoir 18 ans pour participer !'
+      //             );
+      //             parent.setAttribute('data-error-visible', 'true');
+      //             return false;
+      //       }
+      //       parent.setAttribute('data-error-visible', 'false');
+      //       return true;
+
+      // ===================================================
       const parent = document.getElementById('birthdate').parentNode;
             if (!birthdate.value) {
                   birthdate.focus();
@@ -215,12 +241,13 @@ function validateBirthdate() {
 
 // ========== NOMBRE DE PARTIE ============
 function validateQuantity() {
+      const regexQuantity = /^([0-9]{1,2})$/;
       const parent = document.getElementById('quantity').parentNode;
-      if (quantity.value === '') {
+      if (quantity.value === '' || !regexQuantity.test(quantity.value)) {
             quantity.focus();
             parent.setAttribute(
                   'data-error',
-                  'Veuillez entrer une quantité valide !'
+                  'Veuillez entrer un nombre entre 0 et 99 !'
             );
             parent.setAttribute('data-error-visible', 'true');
             return false;
@@ -298,6 +325,33 @@ function openModalThanking() {
       document.querySelector(".confirmation").classList.add("aria-succes");
       
 }
+
+// ACTIVE LINKS
+const activeLinks = document.querySelectorAll('.nav__link');
+activeLinks.forEach(activeLink => {
+      activeLink.addEventListener('click', () => {
+            document.querySelector('.active')?.classList.remove('active');
+            activeLink.classList.add('active');
+      })
+})
+
+
+// MENU TOGGLE
+// const menuToggle = document.querySelector(".icon");
+// const navLinks = document.querySelector(".main-navbar");
+// menuToggle.addEventListener('click', () => {
+//       navLinks.classList.toggle('icon')
+// })
+
+// const btnIcon = document.querySelector('nav-toggler');
+// const navigation = document.querySelector('nav')
+// btnIcon.addEventListener('click', toggleNav)
+// function toggleNav() {
+//       btnIcon.classList.toggle('active')
+//       navigation.classList.toggle('active')
+//       console.log("BTN ACTIVE")
+// }
+
 
 // BTN SUBMIT======
 // btnValid.addEventListener('click', function() {

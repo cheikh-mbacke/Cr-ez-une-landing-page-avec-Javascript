@@ -12,20 +12,35 @@
 
 <body>
 
+  <!-- On remplace la div par header à tester mais décale tout l'ensemble-->
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
       <img alt="logo GameOn" src="Logo.png"> <!-- attributs supprimés et ajout nom du logo-->
     </div>
     <!-- Navbar -->
-    <nav class="main-navbar">
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
-      <a href="#"><span>À propos</span></a>
-      <a href="#"><span>Contact</span></a>
-      <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
+    <nav class="main-navbar ">
+      <!-- <a href="#" class="active"><span>Accueil</span></a> -->
+      <ul class="nav__list">
+        <li class="nav__item"><a href="#" class="nav__link"><span>Détails de l'évènement</span></a></li>
+        <li class="nav__item"><a href="#" class="nav__link"><span>À propos</span></a></li>
+        <li class="nav__item"><a href="#" class="nav__link"><span>Contact</span></a></li>
+        <li class="nav__item"><a href="#" class="nav__link"><span>Évènements passés</span></a></li>
+        <li class="nav__item"><a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a></li>
+      </ul>
+      <!-- <a href="#" class="active"><span>Détails de l'évènement</span></a> -->
+      <!-- <a href="#"><span>À propos</span></a> -->
+      <!-- <a href="#"><span>Contact</span></a> -->
+      <!-- <a href="#"><span>Évènements passés</span></a> -->
+      <!-- <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
-      </a>
+      </a> -->
+      <!-- <button type="button" aria-label="toggle" class="nav-toggler">
+        <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </button> -->
     </nav>
   </div>
   <main>

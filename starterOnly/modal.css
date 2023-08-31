@@ -8,6 +8,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  /* On cache toute les décorations de liste à puces*/
+  list-style: none;
 }
 
 /* Landing Page */
@@ -21,6 +23,9 @@ body {
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
+  /* Cache la barre de scroll si besoin*/
+  overflow-y: auto;
+  list-style: none;
 }
 
 p {
@@ -35,12 +40,11 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
-  /* Ajustement pour correspondre à la maquette */
-  min-width: 1300px;
 }
 
 .header-logo {
   float: left;
+  cursor: pointer;
 }
 
 .main-navbar {
@@ -75,111 +79,6 @@ img {
 
 .topnav .icon {
   display: none;
-}
-
-@media only screen and(min-width: 541px) and (max-width: 768px) {
-  .topnav a {
-    display: none;
-  }
-
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
-@media only screen and (max-width: 540px) {
-
-  .topnav a {
-    display: none;
-  }
-
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Ajout CSS */
-  .topnav {
-    margin: 1.5%;
-  }
-
-  body>main {
-    margin: 0;
-  }
-
-  main>.hero-section {
-    font-weight: 500;
-    min-height: 70vh;
-  }
-
-  .hero-section>.hero-content {
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    min-width: 100%;
-  }
-
-
-  .hero-content>.hero-text {
-    font-size: clamp(13px, 1.5vw, 2.2rem);
-    font-weight: 400;
-    margin-top: 25px;
-  }
-
-  .hero-content>.hero-headline {
-    font-size: clamp(1.5rem, 9.5vw, 12.1rem);
-    margin-top: 20px;
-  }
-
-  body {
-    padding: 30px;
-    /* Ajout d'un padding au body */
-  }
-
-  main>.bground {
-    background-color: transparent;
-    position: fixed;
-    padding-top: 60px;
-  }
-
-  .bground>.content {
-    max-width: 100%;
-    margin: 0 auto;
-    margin-top: 20px;
-    overflow: auto;
-  }
-
-  .bground .formData {
-    margin-bottom: 5px;
-  }
-
-  .bground .formData>label,
-  text-label {
-    font-size: 10px;
-  }
 }
 
 main {
@@ -239,7 +138,7 @@ main {
 .bground {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 99;
   left: 0;
   top: 0;
   height: 100%;
@@ -269,7 +168,8 @@ main {
 
 label {
   font-family: var(--font-default);
-  font-size: 17px;
+  font-size: 14px;
+  /* Ajuste la taille du texte */
   font-weight: normal;
   display: inline-block;
   margin-bottom: 11px;
@@ -298,9 +198,13 @@ input {
   margin-top: 7px;
   margin-bottom: 7px;
   text-align: left;
-  line-height: 0.3;
+  line-height: 1.1;
+  /*test*/
+  font-size: clamp(0.6rem, 1vw, 1rem);
+  /* test*/
   opacity: 0;
   transition: 0.3s;
+  font-family: "Roboto", sans-serif;
 }
 
 .formData[data-error-visible="true"]::after {
@@ -428,7 +332,7 @@ input[data-error]::after {
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
-  padding: 12px 82px;
+  padding: 12px 65px;
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -505,22 +409,13 @@ input[data-error]::after {
 /* custom select end */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
+  /* Ajuster la taille */
 }
 
 .hero-section {
-  /* min-height: 93vh;
-  border-radius: 10px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  overflow: hidden;
-  box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px; */
-
-  /* On ajuste la hauteur*/
-  min-height: 72vh;
-  /* Largeur de la fenêtre */
-  width: 1240px;
+  /*93vh Réduction de la box*/
+  min-height: 70vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -536,8 +431,8 @@ input[data-error]::after {
   color: #fff;
   position: relative;
   text-align: left;
-  min-width: 510px;
-  /* On ajuste le fond noir */
+  /* Ajustement de la fenêtre*/
+  min-width: 500px;
 }
 
 .hero-content::after {
@@ -557,33 +452,29 @@ input[data-error]::after {
 
 .hero-headline {
   font-size: 6rem;
+  font-size: clamp(4.5rem, 5vw, 6rem);
+  /* test */
   font-weight: normal;
   white-space: nowrap;
 }
 
 .hero-text {
-  /* Réglage de la largeur */
-  width: 122%;
+  /* width: 100%; */
   font-weight: normal;
   margin-top: 57px;
   padding: 0;
+  font-size: 22px;
+  /* font-size: clamp(1.4rem, 1.5vw, 2rem); */
 }
 
 .btn-signup {
-  /* outline: none;
-  text-transform: capitalize;
-  font-size: 1.3rem;
-  padding: 15px 23px;
-  margin: 0;
-  margin-top: 59px; */
-
-  /* Ajustement du bouton */
   outline: none;
   text-transform: capitalize;
-  font-size: 1.8rem;
-  padding: 10px 25px;
+  font-size: 1.3rem;
+  padding: 15px 35px;
   margin: 0;
-  margin-top: 90px;
+  margin-top: 59px;
+  font-size: 25px;
 }
 
 .hero-img {
@@ -596,7 +487,7 @@ input[data-error]::after {
   display: block;
   padding: 0;
   position: relative;
-  /* Faire passer la photo en premier plan pour la manipulation */
+  /* Pour avoir tout l'image*/
 }
 
 .copyrights {
@@ -612,14 +503,221 @@ input[data-error]::after {
 }
 
 footer {
-  /* J'enlève le padding left et la margin pour correspondre à la maquette. */
-  /* padding-left: 2vw; */
+  padding-left: 2vw;
   padding-right: 2vw;
-  /* margin: 0 20px; */
+  margin: 0 20px;
 }
+
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =================== Ajout de la classe hidden pour la modal de confirmation ======================= */
+.aria-hidden {
+  display: none;
+}
+
+.aria-succes {
+  display: flex;
+  height: 650px;
+  padding: 0 30px;
+  text-align: justify;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  font-weight: 400;
+  /* font: "DM Sans", Arial, Helvetica, sans-serif; */
+}
+
+.confirmation div>p {
+  text-align: center;
+  font-size: 36px;
+}
+
+/* MOBILE */
+@media screen and (max-width: 540px) {
+
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ajout CSS */
+  body>.topnav {
+    margin: 1.5%;
+  }
+
+  body>main {
+    margin: 0;
+  }
+
+  .header-logo>img {
+    width: clamp(8rem, 15vw, 20rem) !important;
+  }
+
+  main>.hero-section {
+    font-weight: 500;
+    min-height: 70vh;
+  }
+
+  .hero-section>.hero-content {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    min-width: 100%;
+  }
+
+
+  .hero-content>.hero-text {
+    font-size: clamp(13px, 1.5vw, 2.2rem);
+    font-weight: 400;
+    margin-top: 25px;
+  }
+
+  .hero-content>.hero-headline {
+    font-size: clamp(1.5rem, 8.5vw, 12.1rem);
+    margin-top: 20px;
+    font-weight: 900;
+  }
+
+  .hero-section>.btn-signup,
+  .btn-submit,
+  .btnValid {
+    font-size: 14px;
+    padding: 7px 45px !important
+      /* border-radius: 10px; */
+  }
+
+  body .copyrights {
+    font-size: 10px;
+    margin-top: 15px;
+  }
+
+  body {
+    padding: 30px;
+    /* Ajout d'un padding au body */
+  }
+
+  main>.bground {
+    background-color: transparent;
+    position: fixed;
+    padding-top: 60px;
+  }
+
+  .bground>.content {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    overflow: auto;
+  }
+
+  .bground .formData>label,
+  .text-label {
+    font-size: 11px !important;
+  }
+
+  .bground .formData {
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and(min-width: 541px) and (max-width: 768px) {
+  .topnav a {
+    display: none;
+  }
+
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+
+  .topnav.responsive .icon {
+    font-size: 25px;
+  }
+
+}
+
+/* TABLETTE */
+@media screen and (max-width: 768px) {
+  .topnav.responsive {
+    position: relative;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    background-color: transparent
+      /* test*/
+    ;
+  }
+
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+/* @media screen and (min-width: 769px) and (max-width: 900px) {
+  .topnav.responsive {
+    position: relative;
+    padding: 5px;
+  }
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    font-size: 25px;
+    background-color: transparent
+      
+    ;
+  }
+
+  .main-navbar {
+    float: right;
+    padding: 0;
+    z-index: 10;
+    margin-bottom: 25px;
+  }
+} */
 
 @media screen and (max-width: 800px) {
   /* Modification du CSS */
+
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    font-size: 25px;
+    background-color: transparent
+      /* test*/
+    ;
+  }
+
+  .topnav.responsive a {
+    position: relative;
+    top: 25px;
+
+  }
 
   .topnav a {
     display: none;
@@ -629,6 +727,7 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
+    padding: 0;
     /* On affiche le toggle pour la navigation */
   }
 
@@ -638,11 +737,37 @@ footer {
     align-items: center;
     position: relative;
     background-color: white;
+    margin: 5.5%;
+    /* padding: 2%; */
   }
 
   .header-logo img {
     width: clamp(10rem, 15vw, 20rem);
+    position: absolute;
+    top: 0;
   }
+
+  .main-navbar {
+    float: right;
+    padding: 0;
+    z-index: 10;
+    margin-bottom: 25px;
+    /* test */
+  }
+
+  /* test */
+  /* .nav-toggler {
+    border: none;
+    background-color: white;
+  } */
+
+  /* .main-navbar  {
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    font-family: "DMSans-Medium", sans-serif;
+    list-style: none;
+  } */
 
   .fa {
     color: #FF001B;
@@ -657,7 +782,7 @@ footer {
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0;
   }
 
   .hero-content::after {
@@ -670,6 +795,9 @@ footer {
 
   .hero-headline {
     /* font-size: 4.5rem; */
+    font-size: clamp(3.5rem, 8.5vw, 12.1rem);
+    margin-top: 20px;
+    font-weight: 900;
     white-space: normal;
   }
 
@@ -695,35 +823,22 @@ footer {
   }
 }
 
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
+@media screen and (min-width: 801px) {
+  .topnav {
+    margin-right: unset;
   }
 
-  to {
-    opacity: 1;
+  .main-navbar>ul {
+    display: flex;
+    /* list-style: none; */
   }
-}
 
-/* =================== Ajout de la classe hidden pour la modal de confirmation ======================= */
-.aria-hidden {
-  display: none;
-}
+  body>footer {
+    /* padding-left: 2vw; */
+    margin-left: unset;
+    padding-left: unset;
+    /* padding-right: 2vw; */
+    /* margin: 0 20px; */
+  }
 
-.aria-succes {
-  display: flex;
-  height: 700px;
-  padding: 0 40px;
-  text-align: justify;
-  flex-flow: wrap;
-  justify-content: space-evenly;
-  align-items: flex-end;
-  font-weight: 400;
-  /* font: "DM Sans", Arial, Helvetica, sans-serif; */
-}
-
-.confirmation div>p {
-  text-align: center;
-  font-size: 36px;
 }
