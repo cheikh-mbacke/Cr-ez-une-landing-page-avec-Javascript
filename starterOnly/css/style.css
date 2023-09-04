@@ -40,6 +40,11 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
+  /* test */
+  flex-wrap: nowrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .header-logo {
@@ -413,7 +418,7 @@ input[data-error]::after {
 
 .hero-section {
   /*93vh Réduction de la box*/
-  min-height: 70vh;
+  min-height: 60vh;
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -771,9 +776,11 @@ footer {
   }
 }
 
+/* DESKTOP */
 @media screen and (min-width: 801px) {
   .topnav {
     margin-right: unset;
+    justify-content: space-between;
   }
 
   .main-navbar>ul {

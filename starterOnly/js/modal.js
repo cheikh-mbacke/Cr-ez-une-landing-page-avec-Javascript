@@ -135,7 +135,7 @@ function validateFirstName() {
                   firstName.focus();
                   parent.setAttribute(
                         'data-error',
-                        'Minimum 2 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés" !'
+                        'Minimum 2 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés !'
                   );
                   parent.setAttribute('data-error-visible', 'true');
                   return false;

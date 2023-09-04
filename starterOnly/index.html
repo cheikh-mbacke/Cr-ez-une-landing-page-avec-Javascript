@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Reservation</title>
+  <title>Reservation-GameOn</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <!-- modal.css => style.css -->
   <link rel="stylesheet" href="./css/style.css">
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icon_gameon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/icon_gameon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet">
 </head>
@@ -62,7 +62,7 @@
     <!-- Ajout de l'attribut for à la balise label -->
     <div class="bground">
       <div class="content">
-        <span class="close" onclick=closeModal()></span>
+        <span class="close" onclick=closeModal() title="Fermer"></span>
         <div class="modal-body">
           <form id="reserve" name="reserve" action="index.html" method="get" onsubmit="return validate();">
             <div class="formData">
@@ -137,13 +137,12 @@
           <!-- Validation du formulaire: ajout d'une div et une class hidden.-->
           <div class="confirmation aria-hidden" id="validateMessage">
             <div>
-              <p>Merci pour <br /> votre inscription.</p>
+              <p>Merci pour <br> votre inscription.</p>
             </div>
             <button class="btnValid" type="button" onclick="closeModalConfirmation()">Fermer</button>
           </div>
         </div>
       </div>
-    </div>
     </div>
   </main>
   <footer>
