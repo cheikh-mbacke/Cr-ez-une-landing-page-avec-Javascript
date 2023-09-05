@@ -40,7 +40,6 @@ img {
 .topnav {
   overflow: hidden;
   margin: 3.5%;
-  /* test */
   flex-wrap: nowrap;
   display: flex;
   flex-direction: row;
@@ -599,7 +598,6 @@ footer {
   .btnValid {
     font-size: 14px;
     padding: 7px 45px !important
-      /* border-radius: 10px; */
   }
 
   body .copyrights {

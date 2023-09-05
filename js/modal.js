@@ -10,7 +10,7 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelectorAll('.modal-btn');
-const modalBtnClose = document.querySelector('.close'); // ISSUE#1: on récupère le bouton close de la modal
+const modalBtnClose = document.querySelector('.close'); // ISSUE#1: on récupère le bouton close de la modale
 const formData = document.querySelectorAll('.formData');
 const modalBody = document.querySelector('.modal-body'); // on récupère le modal-body
 const modalbgThanks = document.querySelector('.confirmation');
@@ -43,7 +43,7 @@ function closeModal() {
       modalbg.style.display = 'none';
 };
 
-// On ferme la modal de confirmation
+// On ferme la modale de confirmation
 function closeModalConfirmation() {
       modalbgThanks.style.display = 'none';
       modalbg.style.display = 'none';
@@ -135,7 +135,7 @@ function validateFirstName() {
                   firstName.focus();
                   parent.setAttribute(
                         'data-error',
-                        'Minimum 2 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés !'
+                        'Minimum 2 caractères, maximum 20 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés !'
                   );
                   parent.setAttribute('data-error-visible', 'true');
                   return false;
@@ -147,14 +147,14 @@ function validateFirstName() {
 //fonction validation du nom et message erreur si KO!!!
 function validateLastName() {
       // Minimum 2 caractères, maximum 20, chiffres interdit
-      const regexLastName = /^([A-Za-z|\s]{2,15})?([-]{0,1})?([A-Za-z|\s]{2,15})$/;
+      const regexLastName = /^([A-Za-z|\s]{2,20})?([-]{0,1})?([A-Za-z|\s]{2,20})$/;
 
       const parent = document.getElementById('last').parentNode;
             if (lastName.value.trim() == '' || !regexLastName.test(lastName.value)) {
                   lastName.focus();
                   parent.setAttribute(
                         'data-error',
-                        'Minimum 2 caractères, maximum 15 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés !'
+                        'Minimum 2 caractères, maximum 20 caractères. Les chiffres et caractères spéciaux différents de - ne sont pas autorisés !'
                   );
                   parent.setAttribute('data-error-visible', 'true');
                   return false;
