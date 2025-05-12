@@ -24,6 +24,8 @@ Ce projet consiste à créer une **landing page** en **HTML**, **CSS** et **Java
 
 ## 🚀 Démarrer le projet
 
+Vous pouvez voir une démo en ligne du site ici : [Voir la démo](https://cheikh-mbacke.github.io/Cr-ez-une-landing-page-avec-Javascript/)
+
 1. **Cloner le dépôt :**
 
    ```bash
