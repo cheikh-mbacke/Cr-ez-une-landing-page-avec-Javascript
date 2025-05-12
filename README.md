@@ -1,39 +1,51 @@
-![Logo Openclassrooms](/assets/screenshot/open.png "Logo Openclassrooms")
+# 🎮 GameOn - Landing Page
 
-# Formation Développeur d'application JavaScript/React
-
----
-# **Projet 4 - GameOn**
 ![GameOn](/assets/screenshot/Drea.JPG "GameOn")
----
-Description du projet: *créer une landing page en HTML/CSS et JS*
 
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+## 📚 Description du projet
+
+Ce projet consiste à créer une **landing page** en **HTML**, **CSS** et **JavaScript** sans aucune dépendance externe. Le but est de créer une interface propre et fonctionnelle, en respectant les bonnes pratiques de développement web.
+
 ---
 
-## Cahiers des charges :
-### Spécifications fonctionnelles :
-1. Fermer la modale.
-2. Implémenter les entrées du formulaire.
-3. Ajouter une validation / messages d'erreur.
-4. Ajouter une confirmation lorsque l'envoie est réussi.
-5. Effectuer des tests manuels.
----
-### Spécifications techniques :
+## 📦 Structure du projet
 
-* travailler sur un repo GitHub forké ;
-* utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript ;
-* toujours commenter ton code (décrire chaque fonction et chaque classe, ainsi que les parties du code qui nécessitent plus de détails) ;
-* tester manuellement les fonctionnalités, les entrées de formulaire et l'affichage responsive.
+```
+/
+├── assets/        
+├── css/           
+├── DM_Sans/    
+├── js/             
+├── index.html    
+└── README.md       
+```
+
 ---
 
-### Technologies :
-* HTML
-* CSS
-* JavaScript
+## 🚀 Démarrer le projet
 
-### Tester le projet :
-[lien du projet](https://github.com/Souleymane7800/GameOn)
+1. **Cloner le dépôt :**
+
+   ```bash
+   git clone https://github.com/cheikh-mbacke/Cr-ez-une-landing-page-avec-Javascript.git
+   cd Cr-ez-une-landing-page-avec-Javascript
+   ```
+
+2. **Ouvrir le fichier `index.html` dans votre navigateur.**
+
+---
+
+## 🎯 Fonctionnalités
+
+* Ouverture et fermeture des modales.
+* Validation des formulaires avec messages d'erreur.
+* Confirmation après envoi réussi.
+* Tests manuels des fonctionnalités et de la responsivité.
+
+---
+
+## 🛠️ Technologies utilisées
+
+* **HTML**
+* **CSS**
+* **JavaScript**
